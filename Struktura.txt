@@ -1,0 +1,45 @@
+Game
+--------------------------------------
+	Methods
+	-------
+		-InteractionFunc (MainThread)
+			-Keyboard & Mouse
+			-Window
+			-add Tasks
+		-GraphicsFunc (new Thread)
+			-OpenGL
+		-LogicFunc (new Thread)
+			-do Task
+	**************************************
+	Params
+	-------
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		
+Object
+--------------------------------------
+	Methods
+	-------
+		-
+	**************************************
+	Params
+	-------
+		- x,y
+		- origin x,y
+		- weigth
+		-<list>Animations (which contain 3dModel in each)
+		-<list> task (if sth is more important then push this to front of the stack)
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+3dModel
+--------------------------------------
+	Methods
+	-------
+		-
+	**************************************
+	Params
+	-------
+		-<list> Vertex
+		-<list> Normals
+		
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
