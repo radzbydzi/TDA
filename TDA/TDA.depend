@@ -324,3 +324,18 @@
 	"begin_code.h"
 	"close_code.h"
 
+1478695521 source:c:\thirddimensionadvanture\tda\src\main.cpp
+	"Game.h"
+
+1478702901 c:\thirddimensionadvanture\tda\include\game.h
+	<SDL2/SDL.h>
+	<stdio.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<string>
+	<exception>
+	<iostream>
+
+1478702488 source:c:\thirddimensionadvanture\tda\src\game.cpp
+	"Game.h"
+
