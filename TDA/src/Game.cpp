@@ -2,8 +2,8 @@
 SDL_mutex *lock;
 SDL_cond *cond = SDL_CreateCond();
 SDL_bool condition = SDL_FALSE;
-SDL_GLContext context;
-SDL_Window *window;
+
+//SDL_Window *window;
 void initGL() {
    glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Set background color to black and opaque
    glClearDepth(1.0f);                   // Set background depth to farthest
@@ -131,7 +131,7 @@ Game::Game()
     //odpalamy watki
 
     //logicThread = SDL_CreateThread((SDL_ThreadFunction)&logicThreadFunction, "logicThread", (void *)NULL);
-        renderThread = SDL_CreateThread((SDL_ThreadFunction)&renderThreadFunction, "renderThread", (void *)NULL);
+        renderThread = SDL_CreateThread((SDL_ThreadFunction)&renderThreadFunction, "renderThread", (void *)this);
         interactionThreadFunction();
 
 }
@@ -141,10 +141,10 @@ Game::~Game()
     //dtor
 
 	//Destroy window
-	//SDL_DestroyWindow( window );
+	SDL_DestroyWindow( window );
 
 	//Quit SDL subsystems
-	//SDL_Quit();
+	SDL_Quit();
 }
 
 void Game::logicThreadFunction()
@@ -157,7 +157,7 @@ void Game::logicThreadFunction()
     }
 }
 
-void Game::renderThreadFunction()
+void Game::renderThreadFunction(Game &obj)
 {
     printf("Mów do mnie! \r\n");
 
@@ -168,7 +168,8 @@ void Game::renderThreadFunction()
     SDL_UnlockMutex(lock);          //
 
     //context = SDL_GL_CreateContext(window);
-    SDL_GLContext mainGlContext = SDL_GL_CreateContext(window);
+
+    SDL_GLContext mainGlContext = SDL_GL_CreateContext(obj.window);
     //mainGlContext = SDL_GL_CreateContext(window);
     //std::cout<<&context<<" "<<&mainGlContext<<std::endl;
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
@@ -176,9 +177,9 @@ void Game::renderThreadFunction()
     // Double Buffer
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
-    SDL_GL_MakeCurrent(window, mainGlContext);
-    SDL_GL_SwapWindow(window);
-
+    SDL_GL_MakeCurrent(obj.window, mainGlContext);
+    SDL_GL_SwapWindow(obj.window);
+    std::cout<<"window <"<<obj.window<<"> context "<<SDL_GL_GetCurrentContext()<<std::endl;
 
     while(isRunning)
     {
@@ -187,12 +188,13 @@ void Game::renderThreadFunction()
         reshape(640,480);
         initGL();
         display();
-        SDL_GL_SwapWindow(window);
+        SDL_GL_SwapWindow(obj.window);
     }
 }
 
 void Game::interactionThreadFunction()
 {
+    SDL_LockMutex(lock);    //blokuje mutex
     SDL_Init(SDL_INIT_VIDEO);
 
     SDL_Event e;
@@ -213,10 +215,11 @@ void Game::interactionThreadFunction()
         printf("Could not create window: %s\n", SDL_GetError());
 
     }
-    SDL_LockMutex(lock);    //blokuje mutex
     condition = SDL_TRUE;   //gdy sie to wykona
     SDL_CondSignal(cond);   //odblokowuje
     SDL_UnlockMutex(lock);  //wtedy render moze dzialac
+
+    std::cout<<"window :"<<window<<": "<<std::endl;
 
     while( isRunning )
     {

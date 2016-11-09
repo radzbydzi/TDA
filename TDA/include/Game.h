@@ -19,10 +19,9 @@ class Game
     protected:
 
     private:
-        //SDL_Window *window; // klasa okna
-        //SDL_GLContext context;//klasa kontekstu renderujacego
+        SDL_Window *window; // klasa okna
         void logicThreadFunction();//tutaj znajdowac sie maja sie znajdowac wszystkie zmiany polozenia obiektow itp.
-        void renderThreadFunction();//tutaj renderowane sa obiekty brane z odpowiednich list
+        void renderThreadFunction(Game &obj);//tutaj renderowane sa obiekty brane z odpowiednich list
         void interactionThreadFunction();//obsluga klawiatury myszy itp.; wywolane w watku glownym; tworzy takze okno
         bool windowCreated = false;//jesli okno
 
