@@ -327,15 +327,54 @@
 1478695521 source:c:\thirddimensionadvanture\tda\src\main.cpp
 	"Game.h"
 
-1478704686 c:\thirddimensionadvanture\tda\include\game.h
+1479119540 c:\thirddimensionadvanture\tda\include\game.h
 	<SDL2/SDL.h>
 	<stdio.h>
 	<GL/gl.h>
 	<GL/glu.h>
 	<string>
-	<exception>
+	<iostream>
+	<vector>
+	"Camera.h"
+
+1479136858 source:c:\thirddimensionadvanture\tda\src\game.cpp
+	"Game.h"
+	"MathStructs.h"
+	<windows.h>
+
+1478774445 source:c:\thirddimensionadvanture\tda\src\fragment.cpp
+	"Fragment.h"
+
+1478774486 c:\thirddimensionadvanture\tda\include\fragment.h
+	<iostream>
+	<vector>
+	"Object.h"
+
+1478768264 source:c:\thirddimensionadvanture\tda\src\map.cpp
+	"Map.h"
+
+1478772068 c:\thirddimensionadvanture\tda\include\map.h
+	"Fragment.h"
 	<iostream>
 
-1478704714 source:c:\thirddimensionadvanture\tda\src\game.cpp
-	"Game.h"
+1479119099 c:\thirddimensionadvanture\tda\include\object.h
+	"Model.h"
+	<iostream>
+
+1478774445 c:\thirddimensionadvanture\tda\include\model.h
+
+1478772118 source:c:\thirddimensionadvanture\tda\src\model.cpp
+	"Model.h"
+
+1479119108 source:c:\thirddimensionadvanture\tda\src\object.cpp
+	"Object.h"
+
+1479136925 source:c:\thirddimensionadvanture\tda\src\camera.cpp
+	"Camera.h"
+
+1479128702 c:\thirddimensionadvanture\tda\include\camera.h
+	<string>
+
+1479118759 c:\thirddimensionadvanture\tda\include\mathstructs.h
+	<Math.h>
 

@@ -1,4 +1,7 @@
 #include "Game.h"
+
+#include "MathStructs.h"
+#include<windows.h>
 SDL_mutex *lock;
 SDL_cond *cond = SDL_CreateCond();
 SDL_bool condition = SDL_FALSE;
@@ -15,18 +18,15 @@ void initGL() {
 
 /* Handler for window-repaint event. Called back when the window first appears and
    whenever the window needs to be re-painted. */
+double lookat[] = {0.0, 0.0, 0.0, 2.0, 0.0, -7.0, 0.0, 1.0, 0.0};
 void display() {
-   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
-   glMatrixMode(GL_MODELVIEW);     // To operate on model-view matrix
-
-   // Render a color-cube consisting of 6 quads with different colors
-   glLoadIdentity();                 // Reset the model-view matrix
-   glTranslatef(1.5f, 0.0f, -7.0f);  // Move right and into the screen
+   glTranslatef(0.0f, 0.0f, -7.0f);  // Move right and into the screen
 
    glBegin(GL_QUADS);                // Begin drawing the color cube with 6 quads
       // Top face (y = 1.0f)
       // Define vertices in counter-clockwise (CCW) order with normal pointing out
-      glColor3f(0.0f, 1.0f, 0.0f);     // Green
+
+      glColor3f(-0.5f, 1.0f, 0.0f);     // Green
       glVertex3f( 1.0f, 1.0f, -1.0f);
       glVertex3f(-1.0f, 1.0f, -1.0f);
       glVertex3f(-1.0f, 1.0f,  1.0f);
@@ -68,8 +68,9 @@ void display() {
       glVertex3f(1.0f, -1.0f, -1.0f);
    glEnd();  // End of drawing color-cube
 
-   // Render a pyramid consists of 4 triangles
+   /*// Render a pyramid consists of 4 triangles
    glLoadIdentity();                  // Reset the model-view matrix
+   gluLookAt(lookat[0], lookat[1], lookat[2], lookat[3], lookat[4], lookat[5], lookat[6], lookat[7], lookat[8]);
    glTranslatef(-1.5f, 0.0f, -6.0f);  // Move left and into the screen
 
    glBegin(GL_TRIANGLES);           // Begin drawing the pyramid with 4 triangles
@@ -105,7 +106,7 @@ void display() {
       glColor3f(0.0f,1.0f,0.0f);       // Green
       glVertex3f(-1.0f,-1.0f, 1.0f);
    glEnd();   // Done drawing the pyramid
-
+*/
 }
 
 /* Handler for window re-size event. Called back when the window first appears and
@@ -129,10 +130,10 @@ Game::Game()
 {
     //ctor
     //odpalamy watki
-
-    //logicThread = SDL_CreateThread((SDL_ThreadFunction)&logicThreadFunction, "logicThread", (void *)NULL);
-        renderThread = SDL_CreateThread((SDL_ThreadFunction)&renderThreadFunction, "renderThread", (void *)this);
-        interactionThreadFunction();
+    makeSimpleQuat();
+    logicThread = SDL_CreateThread((SDL_ThreadFunction)&logicThreadFunction, "logicThread", (void *)this);//tworzy watek logiczny
+    renderThread = SDL_CreateThread((SDL_ThreadFunction)&renderThreadFunction, "renderThread", (void *)this);//tworzy watek renderu
+    interactionThreadFunction();
 
 }
 
@@ -141,26 +142,31 @@ Game::~Game()
     //dtor
 
 	//Destroy window
-	SDL_DestroyWindow( window );
+	SDL_DestroyWindow( window );//niszczenie okna
 
 	//Quit SDL subsystems
-	SDL_Quit();
+	SDL_Quit();//zamykanie SDL
 }
 
-void Game::logicThreadFunction()
+void Game::logicThreadFunction(Game &obj)
 {
-    printf("Dzialam \r\n");
-    while(isRunning)
+    /*
+    Na logike gry sklada sie:
+    1.Przetwarzanie informacji z wejsc jak mysz, klawiatura
+    2.obliczanie fizyki obiektow
+    3.animacja obiektow
+    4.MOZE sztuczna inteligencja (moze stworze kolejny watek)
+    W miare mozliwosci wszystko parse'owane z listy
+    */
+    obj.addCamera("camera", 0,0,0);
+    obj.currentCamera = obj.getCamera("camera");
+    while(isRunning)//glowna petla logiki gry
     {
-
-        //SDL_WaitThread(renderThread, NULL);
     }
 }
 
 void Game::renderThreadFunction(Game &obj)
 {
-    printf("Mów do mnie! \r\n");
-
     SDL_LockMutex(lock);            //czeka az utworzy sie okno
     while (!condition) {            //
         SDL_CondWait(cond, lock);   //
@@ -169,81 +175,166 @@ void Game::renderThreadFunction(Game &obj)
 
     //context = SDL_GL_CreateContext(window);
 
-    SDL_GLContext mainGlContext = SDL_GL_CreateContext(obj.window);
+    SDL_GLContext mainGlContext = SDL_GL_CreateContext(obj.window);//tworzenie nowego kontekstu
     //mainGlContext = SDL_GL_CreateContext(window);
     //std::cout<<&context<<" "<<&mainGlContext<<std::endl;
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);//wybieranie wersji zalecanej Opengl
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);//wybieranie minimalnej wersji opengl
     // Double Buffer
-    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
-    SDL_GL_MakeCurrent(obj.window, mainGlContext);
-    SDL_GL_SwapWindow(obj.window);
-    std::cout<<"window <"<<obj.window<<"> context "<<SDL_GL_GetCurrentContext()<<std::endl;
-
+    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);//deklarowanie podwojnego bufora
+    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);//glebkosc bufora (???)
+    SDL_GL_MakeCurrent(obj.window, mainGlContext);//ustawianie stworzonego kontekstu jako aktualny
+    SDL_GL_SwapWindow(obj.window);//odswiezanie okna
+    glLoadIdentity();
     while(isRunning)
     {
-        glClearColor(0.0, 0.0, 0.0, 0.0);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClearColor(0.0, 0.0, 0.0, 0.0);//czyszczenie okna kolorem czarnym
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//kolejne czyszczenie
         reshape(640,480);
         initGL();
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
+        glMatrixMode(GL_MODELVIEW);     // To operate on model-view matrix
+        glLoadIdentity();
+        // Render a color-cube consisting of 6 quads with different colors
+        Camera* CuCam = obj.currentCamera;
+
+        if(CuCam!=NULL)
+        {
+            //glTranslatef(CuCam->getX(), CuCam->getY(), CuCam->getZ());
+            glRotatef(CuCam->getRY(),1.0,0.0,0.0);
+            //glTranslatef(CuCam->getX(), CuCam->getY(), CuCam->getZ());
+            glRotatef(CuCam->getRZ(),0.0,0.0,1.0);
+            //glTranslatef(CuCam->getX(), CuCam->getY(), CuCam->getZ());
+            glRotatef(CuCam->getRX(),0.0,1.0,0.0);
+        }
+        glTranslatef(CuCam->getX(), CuCam->getY(), CuCam->getZ());
         display();
-        SDL_GL_SwapWindow(obj.window);
+
+        SDL_GL_SwapWindow(obj.window);//odswiezanie okna
+        glFlush();
     }
 }
 
 void Game::interactionThreadFunction()
 {
     SDL_LockMutex(lock);    //blokuje mutex
-    SDL_Init(SDL_INIT_VIDEO);
-
+    SDL_Init(SDL_INIT_VIDEO);//inicjuje cos SDLa
     SDL_Event e;
-            // Initialize SDL2
-    //context = SDL_GL_CreateContext(window);
-    //SDL_GL_SetAttribute(SDL_GL_SHARE_WITH_CURRENT_CONTEXT, 1);
-    //SDL_GL_MakeCurrent(window, NULL);
-
-    //SDL_GL_SetSwapInterval(1);
+    SDL_GL_SetSwapInterval(1);//jakas synchronizacja, czas miedzy updateami okna
     // Check that the window was successfully created
-    window = SDL_CreateWindow("Ma première application SDL2",SDL_WINDOWPOS_UNDEFINED,
+    int window_w = 640;
+    int window_h = 480;
+    window = SDL_CreateWindow("Third Dimension Adventure",SDL_WINDOWPOS_UNDEFINED,
                                                              SDL_WINDOWPOS_UNDEFINED,
-                                                             640,
-                                                             480,
-                                                             SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
-    if (window == NULL) {
+                                                             window_w,
+                                                             window_h,
+                                                             SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);//tworzy okno
+    if (window == NULL) {//jesli okono nie zostalo stworzone
         // In the case that the window could not be made...
-        printf("Could not create window: %s\n", SDL_GetError());
-
+        printf("Could not create window: %s\n", SDL_GetError());//pokaz error
+        isRunning=false;//zatrzymaj petle wszystkich watkow
     }
+    int old_mousex=window_w/2;
+    int old_mousey=window_h/2;
     condition = SDL_TRUE;   //gdy sie to wykona
     SDL_CondSignal(cond);   //odblokowuje
     SDL_UnlockMutex(lock);  //wtedy render moze dzialac
-
-    std::cout<<"window :"<<window<<": "<<std::endl;
-
-    while( isRunning )
+    int mousex, mousey;
+    SDL_WarpMouseInWindow(window, window_w/2, window_h/2);
+    SDL_ShowCursor(SDL_DISABLE);
+    while( isRunning )//jesli gra ma dzialac
     {
         //Handle events on queue
-        while( SDL_PollEvent( &e ) != 0 )
+        while( SDL_PollEvent( &e ) != 0 )//sprawdza czy jest jakis event
         {
-
-            //User requests quit
-            if( e.type == SDL_QUIT )
+            if( e.type == SDL_QUIT )//jesli evenetem jest zamknij
             {
-                isRunning = false;
+                isRunning = false;//zmien zmienna od dzialania na falsz
+            }
+            if( e.type == SDL_KEYDOWN)
+            {
+                switch(e.key.keysym.sym)
+                {
+                    case (int)'w':
+                        currentCamera->setY(currentCamera->getY()-0.1);
+                        break;
+                    case (int)'s':
+                        currentCamera->setY(currentCamera->getY()+0.1);
+                        break;
+                    case (int)'a':
+                        currentCamera->setX(currentCamera->getX()-0.1);
+                        break;
+                    case (int)'d':
+                        currentCamera->setX(currentCamera->getX()+0.1);
+                        break;
+                    case (int)'z':
+                        currentCamera->setZ(currentCamera->getZ()-0.1);
+                        break;
+                    case (int)'x':
+                        currentCamera->setZ(currentCamera->getZ()+0.1);
+                        break;
+                    //rotacja
+                    case 1073741904:
+                        currentCamera->setRX(currentCamera->getRX()-0.1);
+                        break;
+                    case 1073741903:
+                        currentCamera->setRX(currentCamera->getRX()+0.1);
+                        break;
+                    case 1073741906:
+                        currentCamera->setRY(currentCamera->getRY()-0.1);
+                        break;
+                    case 1073741905:
+                        currentCamera->setRY(currentCamera->getRY()+0.1);
+                        break;
+                    break;
+                }
+            }
+            if( e.type == SDL_MOUSEMOTION)
+            {
+                SDL_WarpMouseInWindow(window, window_w/2, window_h/2);//mysz na stoddek
+                mousex= e.motion.x;
+                mousey = e.motion.y;
+
+                float kx = mousex - window_w/2; //kordynaty x w swiecie
+                float ky = mousey - window_h/2; //kordynaty y w swiecie
+
+                //obliczanie kata
+                float angleX=atanf(kx/100);//liczba 100 jest czuloscia
+                float angleY=atanf(ky/100);
+
+                if(angleX>89)
+                    angleX=89;
+                if(angleY>89)
+                    angleY=89;
+
+                currentCamera->setRX(currentCamera->getRX()+angleX);//ustawiamy kat rotacji dla x
+                currentCamera->setRY(currentCamera->getRY()+angleY);//ustawiamy kat rotacji dla y
             }
 
         }
-        //reshape(640,480);
-        //initGL();
-        //display();
-        //Swap back and front buffer
-        //SDL_GL_SwapWindow(window);
-        //SDL_GL_MakeCurrent(window, context);
 
-        //if(SDL_GL_GetCurrentContext())
-           // printf("Context > %s \r\n", SDL_GL_GetCurrentContext());
+        /**/
+
     }
 }
 
 
+void Game::addCamera(string name, float x, float y, float z)
+{
+    Camera tmp = Camera(name,x,y,z);
+    cameras.push_back(tmp);
+}
+
+Camera* Game::getCamera(int id)
+{
+    return &cameras[id];
+}
+Camera* Game::getCamera(string name)
+{
+    for(int i=0; i<cameras.size(); i++)
+    {
+        if(name==cameras[i].getName())
+            return &cameras[i];
+    }
+    return false;
+}
