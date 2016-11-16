@@ -324,7 +324,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1478695521 source:c:\thirddimensionadvanture\tda\src\main.cpp
+1479207804 source:c:\thirddimensionadvanture\tda\src\main.cpp
 	"Game.h"
 
 1479119540 c:\thirddimensionadvanture\tda\include\game.h
@@ -337,7 +337,7 @@
 	<vector>
 	"Camera.h"
 
-1479136858 source:c:\thirddimensionadvanture\tda\src\game.cpp
+1479287586 source:c:\thirddimensionadvanture\tda\src\game.cpp
 	"Game.h"
 	"MathStructs.h"
 	<windows.h>
@@ -369,12 +369,21 @@
 1479119108 source:c:\thirddimensionadvanture\tda\src\object.cpp
 	"Object.h"
 
-1479136925 source:c:\thirddimensionadvanture\tda\src\camera.cpp
+1479287433 source:c:\thirddimensionadvanture\tda\src\camera.cpp
 	"Camera.h"
-
-1479128702 c:\thirddimensionadvanture\tda\include\camera.h
-	<string>
-
-1479118759 c:\thirddimensionadvanture\tda\include\mathstructs.h
 	<Math.h>
+	"MathStructs.h"
+	<iostream>
+	<windows.h>
+
+1479287329 c:\thirddimensionadvanture\tda\include\camera.h
+	<string>
+	"MathStructs.h"
+
+1479287161 c:\thirddimensionadvanture\tda\include\mathstructs.h
+	<Math.h>
+	<sstream>
+
+1479236111 source:c:\thirddimensionadvanture\tda\src\mathstructs.cpp
+	"MathStructs.h"
 

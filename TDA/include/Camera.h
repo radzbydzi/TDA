@@ -1,6 +1,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 #include <string>
+#include "MathStructs.h"
 using namespace std;
 class Camera
 {
@@ -30,11 +31,15 @@ class Camera
         //nazwa
         void setName(string name);
         string getName();
+        void moveForward(int dir, float magnitude);
+        void moveRight(int dir, float magnitude);
+        void moveUp(int dir, float magnitude);
     protected:
 
     private:
         float x,y,z;
         float rx,ry,rz;//rotation x,y,z in degree
+
         string name;
 };
 

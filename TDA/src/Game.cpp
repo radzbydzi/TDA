@@ -130,7 +130,6 @@ Game::Game()
 {
     //ctor
     //odpalamy watki
-    makeSimpleQuat();
     logicThread = SDL_CreateThread((SDL_ThreadFunction)&logicThreadFunction, "logicThread", (void *)this);//tworzy watek logiczny
     renderThread = SDL_CreateThread((SDL_ThreadFunction)&renderThreadFunction, "renderThread", (void *)this);//tworzy watek renderu
     interactionThreadFunction();
@@ -193,6 +192,8 @@ void Game::renderThreadFunction(Game &obj)
         reshape(640,480);
         initGL();
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
+        glLoadIdentity();
+        gluPerspective(45,640.0/480.0,1.0,500.0);
         glMatrixMode(GL_MODELVIEW);     // To operate on model-view matrix
         glLoadIdentity();
         // Render a color-cube consisting of 6 quads with different colors
@@ -256,36 +257,35 @@ void Game::interactionThreadFunction()
                 switch(e.key.keysym.sym)
                 {
                     case (int)'w':
-                        currentCamera->setY(currentCamera->getY()-0.1);
+                        currentCamera->moveForward(1,0.5f);
                         break;
                     case (int)'s':
-                        currentCamera->setY(currentCamera->getY()+0.1);
+                        currentCamera->moveForward(-1,0.5f);
                         break;
                     case (int)'a':
-                        currentCamera->setX(currentCamera->getX()-0.1);
+                        currentCamera->moveRight(1,0.5f);
                         break;
                     case (int)'d':
-                        currentCamera->setX(currentCamera->getX()+0.1);
-                        break;
-                    case (int)'z':
-                        currentCamera->setZ(currentCamera->getZ()-0.1);
-                        break;
-                    case (int)'x':
-                        currentCamera->setZ(currentCamera->getZ()+0.1);
+                        currentCamera->moveRight(-1,0.5f);
                         break;
                     //rotacja
                     case 1073741904:
-                        currentCamera->setRX(currentCamera->getRX()-0.1);
+                        currentCamera->setRX(currentCamera->getRX()-1);
                         break;
                     case 1073741903:
-                        currentCamera->setRX(currentCamera->getRX()+0.1);
+                        currentCamera->setRX(currentCamera->getRX()+1);
                         break;
                     case 1073741906:
-                        currentCamera->setRY(currentCamera->getRY()-0.1);
+                        currentCamera->setRY(currentCamera->getRY()-1);
                         break;
                     case 1073741905:
-                        currentCamera->setRY(currentCamera->getRY()+0.1);
+                        currentCamera->setRY(currentCamera->getRY()+1);
                         break;
+                    case (int)'r':
+                        {
+                            currentCamera->setXYZ(0,0,0);
+                            currentCamera->setRXYZ(0,0,0);
+                        }
                     break;
                 }
             }
@@ -309,6 +309,24 @@ void Game::interactionThreadFunction()
 
                 currentCamera->setRX(currentCamera->getRX()+angleX);//ustawiamy kat rotacji dla x
                 currentCamera->setRY(currentCamera->getRY()+angleY);//ustawiamy kat rotacji dla y
+
+                if(currentCamera->getRX()>=360)
+                {
+                    currentCamera->setRX(360-currentCamera->getRX());
+                }
+                if(currentCamera->getRX()<=-360)
+                {
+                    currentCamera->setRX(360+currentCamera->getRX());
+                }
+                if(currentCamera->getRY()>=360)
+                {
+                    currentCamera->setRY(360-currentCamera->getRY());
+                }
+                if(currentCamera->getRY()<=-360)
+                {
+                    currentCamera->setRY(360+currentCamera->getRY());
+                }
+                //cout<<currentCamera->getRX()<<" "<<currentCamera->getRY()<<endl;
             }
 
         }

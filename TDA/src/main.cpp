@@ -9,6 +9,7 @@ and may not be redistributed without written permission.*/
 
 int main( int argc, char* args[] )
 {
+
     Game *game = new Game();
 
     delete game;

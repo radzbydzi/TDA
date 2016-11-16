@@ -1,5 +1,8 @@
 #include "Camera.h"
-
+#include <Math.h>
+#include "MathStructs.h"
+#include <iostream>
+#include <windows.h>
 Camera::Camera(string name)
 {
     //ctor
@@ -111,4 +114,70 @@ float* Camera::getRXYZ()
 string Camera::getName()
 {
     return name;
+}
+//moving
+void Camera::moveForward(int dir, float magnitude)
+{
+    //http://www.songho.ca/opengl/files/gl_anglestoaxes05.png
+    //http://www.songho.ca/opengl/gl_anglestoaxes.html
+    float rad = PI/180;//stopnie na radiany
+    float rxr = (rz)*rad;//osi x nie ruszamy, tu pewnie bedzie z
+    float ryr = (rx)*rad;//pod os y podkladamy obrot x (nie wiem czemu)
+    float rzr = (ry)*rad;//pod os z podkladamy obrot y (tez nie wiem czemu)
+    //macierze obrotu
+    mat3 m_rx=mat3(
+               1, 0, 0,
+               0, cosf(rxr), -sinf(rxr),
+               0, sinf(rxr), cosf(rxr)
+               );
+    mat3 m_ry=mat3(
+               cosf(ryr), 0, sinf(ryr),
+               0, 1, 0,
+               -sinf(ryr), 0, cosf(ryr)
+               );
+    mat3 m_rz=mat3(
+               cosf(rzr), -sinf(rzr), 0,
+               sinf(rzr), cosf(rzr), 0,
+               0,0,1
+               );
+    mat3 cord = m_rx*m_ry*m_rz;//kordynaty z pomnozonych macierzy obrotu
+
+    vec3 transformed = vec3(cord.a11*magnitude, cord.a21*magnitude, cord.a31*magnitude);//przekladamy na wektor, mnozym kazde przez dlugosc
+    //ustawiamy xyz, do poprzednich wartosci dodajemy w odwrotnej kolejnosci z,y,x pomnozone przez kierunke, kierunek jest albo -1 albo 1; i fajno
+    setX(x+dir*transformed.z);//transformacja dla osi x
+    setY(y+dir*transformed.y);//transformacja dla osi y
+    setZ(z+dir*transformed.x);//transformacja dla osi z
+    //moim bledem bylo ze dodawalem jakis wektor i to do tego dodawalem x y z, oraz osie
+    //teraz dodaje po prostu odpowiednie wektory mnozone przez dlugosc
+}
+void Camera::moveRight(int dir, float magnitude)
+{
+    float rad = PI/180;//stopnie na radiany
+    float rxr = (rz)*rad;//osi x nie ruszamy, tu pewnie bedzie z
+    float ryr = (rx)*rad;//pod os y podkladamy obrot x (nie wiem czemu)
+    float rzr = (ry)*rad;//pod os z podkladamy obrot y (tez nie wiem czemu)
+    //macierze obrotu
+    mat3 m_rx=mat3(
+               1, 0, 0,
+               0, cosf(rxr), -sinf(rxr),
+               0, sinf(rxr), cosf(rxr)
+               );
+    mat3 m_ry=mat3(
+               cosf(ryr), 0, sinf(ryr),
+               0, 1, 0,
+               -sinf(ryr), 0, cosf(ryr)
+               );
+    mat3 m_rz=mat3(
+               cosf(rzr), -sinf(rzr), 0,
+               sinf(rzr), cosf(rzr), 0,
+               0,0,1
+               );
+    mat3 cord = m_rx*m_ry*m_rz;//kordynaty z pomnozonych macierzy obrotu
+
+    vec3 transformed = vec3(cord.a11*magnitude, cord.a21*magnitude, cord.a31*magnitude);//przekladamy na wektor, mnozym kazde przez dlugosc
+    transformed = transformed*vec3(0,1,0);
+    //ustawiamy xyz, do poprzednich wartosci dodajemy w odwrotnej kolejnosci z,y,x pomnozone przez kierunke, kierunek jest albo -1 albo 1;
+    setX(x+dir*transformed.z);//transformacja dla osi x
+    setY(y+dir*transformed.y);//transformacja dla osi y
+    setZ(z+dir*transformed.x);//transformacja dla osi z
 }
