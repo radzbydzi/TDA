@@ -95,6 +95,13 @@ struct vec3
         return r;
     }
 };
+struct vec2
+{
+    float x,y;
+
+    vec2(){};
+    vec2(float x, float y): x(x),y(y){};
+};
 struct quat
 {
     float x,y,z,w;//wspolrzedne kwaterniona
@@ -114,6 +121,7 @@ void QuaternionRotationY(quat *Out, float a);
 void QuaternionRotationZ(quat *Out, float a);
 void Mul(quat *Out, const quat &q1, const quat &q2);
 void QuaternionTransform(vec3 *Out, const vec3 &p, const quat &q);
+std::string show(vec2 v);
 std::string show(vec3 v);
 std::string show(mat3 m);
 #endif // MATHSTRUCTS_H_INCLUDED

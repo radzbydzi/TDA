@@ -40,21 +40,32 @@
 			<Add option="-lmingw32 -lSDL2main -lSDL2 -lopengl32 -lglu32" />
 			<Add directory="../SDL2-2.0.5/i686-w64-mingw32/lib" />
 		</Linker>
+		<Unit filename="../Testy/cube.obj" />
 		<Unit filename="include/Camera.h" />
 		<Unit filename="include/Fragment.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MathStructs.h" />
+		<Unit filename="include/Mesh.h" />
 		<Unit filename="include/Model.h" />
 		<Unit filename="include/Object.h" />
+		<Unit filename="include/Position.h" />
+		<Unit filename="include/lodepng.h" />
 		<Unit filename="src/Camera.cpp" />
 		<Unit filename="src/Fragment.cpp" />
 		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/Interaction.cpp" />
+		<Unit filename="src/Logic.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MathStructs.cpp" />
+		<Unit filename="src/Mesh.cpp" />
 		<Unit filename="src/Model.cpp" />
 		<Unit filename="src/Object.cpp" />
+		<Unit filename="src/Position.cpp" />
+		<Unit filename="src/Render.cpp" />
+		<Unit filename="src/lodepng.cpp" />
 		<Unit filename="src/main.cpp" />
+		<Unit filename="test.png" />
 		<Extensions>
 			<code_completion />
 			<envvars />

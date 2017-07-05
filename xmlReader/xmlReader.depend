@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1489779692 source:c:\thirddimensionadvanture\xmlreader\main.cpp
+	<iostream>
+	"XML.h"
+
+1489842161 c:\thirddimensionadvanture\xmlreader\include\xml.h
+	<string>
+	<fstream>
+	<iostream>
+	<vector>
+	<cstring>
+	<algorithm>
+	<windows.h>
+
+1489769219 source:c:\thirddimensionadvanture\xmlreader\src\xml.cpp
+	"XML.h"
+

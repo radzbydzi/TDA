@@ -5,7 +5,7 @@
 	<GL/gl.h>
 	<GL/glu.h>
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_assert.h"
@@ -36,12 +36,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_main.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_stdinc.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -69,34 +69,34 @@
 	<stdlib.h>
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_config.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_config.h
 	"SDL_platform.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_platform.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_platform.h
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	<winapifamily.h>
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\begin_code.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\begin_code.h
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\close_code.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\close_code.h
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_assert.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_assert.h
 	"SDL_config.h"
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_atomic.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_atomic.h
 	"SDL_stdinc.h"
 	"SDL_platform.h"
 	"begin_code.h"
 	<mbarrier.h>
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_audio.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -106,24 +106,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_error.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_endian.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_mutex.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_thread.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_atomic.h"
@@ -132,18 +132,18 @@
 	<process.h>
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_rwops.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_clipboard.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_clipboard.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_cpuinfo.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	<intrin.h>
 	<intrin.h>
@@ -155,7 +155,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_events.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -169,7 +169,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_video.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -177,13 +177,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_pixels.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_pixels.h
 	"SDL_stdinc.h"
 	"SDL_endian.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_rect.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_rect.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_pixels.h"
@@ -191,7 +191,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_surface.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_surface.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -200,11 +200,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_blendmode.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_blendmode.h
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_keyboard.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keycode.h"
@@ -212,27 +212,27 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_keycode.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_scancode.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_scancode.h
 	"SDL_stdinc.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_mouse.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_joystick.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_gamecontroller.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_gamecontroller.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
@@ -240,11 +240,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_quit.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_gesture.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_gesture.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -252,60 +252,60 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_touch.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_touch.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_filesystem.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_filesystem.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_haptic.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_haptic.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_hints.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_hints.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_loadso.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_log.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_log.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_messagebox.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_messagebox.h
 	"SDL_stdinc.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_power.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_power.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_render.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_render.h
 	"SDL_stdinc.h"
 	"SDL_rect.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_system.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_system.h
 	"SDL_stdinc.h"
 	"SDL_keyboard.h"
 	"SDL_render.h"
@@ -313,21 +313,21 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_timer.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_timer.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_version.h
+1476939494 c:\thirddimensionadvanture\sdl2-2.0.5\i686-w64-mingw32\include\sdl2\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1479207804 source:c:\thirddimensionadvanture\tda\src\main.cpp
+1482539484 source:c:\thirddimensionadvanture\tda\src\main.cpp
 	"Game.h"
 
-1479119540 c:\thirddimensionadvanture\tda\include\game.h
+1482539902 c:\thirddimensionadvanture\tda\include\game.h
 	<SDL2/SDL.h>
 	<stdio.h>
 	<GL/gl.h>
@@ -336,54 +336,116 @@
 	<iostream>
 	<vector>
 	"Camera.h"
-
-1479287586 source:c:\thirddimensionadvanture\tda\src\game.cpp
-	"Game.h"
+	"Object.h"
 	"MathStructs.h"
+	"lodepng.h"
+
+1479380325 source:c:\thirddimensionadvanture\tda\src\game.cpp
+	"Game.h"
 	<windows.h>
 
-1478774445 source:c:\thirddimensionadvanture\tda\src\fragment.cpp
+1479302966 source:c:\thirddimensionadvanture\tda\src\fragment.cpp
 	"Fragment.h"
 
-1478774486 c:\thirddimensionadvanture\tda\include\fragment.h
+1479302961 c:\thirddimensionadvanture\tda\include\fragment.h
 	<iostream>
 	<vector>
 	"Object.h"
 
-1478768264 source:c:\thirddimensionadvanture\tda\src\map.cpp
+1478771864 source:c:\thirddimensionadvanture\tda\src\map.cpp
 	"Map.h"
 
-1478772068 c:\thirddimensionadvanture\tda\include\map.h
+1478775668 c:\thirddimensionadvanture\tda\include\map.h
 	"Fragment.h"
 	<iostream>
 
-1479119099 c:\thirddimensionadvanture\tda\include\object.h
+1479391139 c:\thirddimensionadvanture\tda\include\object.h
 	"Model.h"
+	"Position.h"
 	<iostream>
 
-1478774445 c:\thirddimensionadvanture\tda\include\model.h
+1479308178 c:\thirddimensionadvanture\tda\include\model.h
+	<vector>
+	<iostream>
+	<fstream>
+	"MathStructs.h"
+	<sstream>
+	<utility>
+	<string>
+	<stdio.h>
+	<stdlib.h>
+	<Mesh.h>
 
-1478772118 source:c:\thirddimensionadvanture\tda\src\model.cpp
+1479391925 source:c:\thirddimensionadvanture\tda\src\model.cpp
 	"Model.h"
 
-1479119108 source:c:\thirddimensionadvanture\tda\src\object.cpp
+1479391180 source:c:\thirddimensionadvanture\tda\src\object.cpp
 	"Object.h"
+	"../font_lib/arial/stb_font_arial_6_latin_ext.inl"
 
-1479287433 source:c:\thirddimensionadvanture\tda\src\camera.cpp
+1479302517 source:c:\thirddimensionadvanture\tda\src\camera.cpp
 	"Camera.h"
 	<Math.h>
 	"MathStructs.h"
 	<iostream>
 	<windows.h>
 
-1479287329 c:\thirddimensionadvanture\tda\include\camera.h
+1479302576 c:\thirddimensionadvanture\tda\include\camera.h
 	<string>
 	"MathStructs.h"
+	"Position.h"
 
-1479287161 c:\thirddimensionadvanture\tda\include\mathstructs.h
+1479314580 c:\thirddimensionadvanture\tda\include\mathstructs.h
 	<Math.h>
 	<sstream>
 
-1479236111 source:c:\thirddimensionadvanture\tda\src\mathstructs.cpp
+1479314611 source:c:\thirddimensionadvanture\tda\src\mathstructs.cpp
 	"MathStructs.h"
+
+1479302478 c:\thirddimensionadvanture\tda\include\position.h
+
+1479302542 source:c:\thirddimensionadvanture\tda\src\position.cpp
+	"Position.h"
+
+1479303866 source:c:\thirddimensionadvanture\tda\src\mesh.cpp
+	"Mesh.h"
+
+1479386636 c:\thirddimensionadvanture\tda\include\mesh.h
+	"MathStructs.h"
+	<vector>
+	<string>
+
+1479376434 source:c:\thirddimensionadvanture\tda\interaction.cpp
+
+1479376409 source:c:\thirddimensionadvanture\tda\logic.cpp
+
+1479376419 source:c:\thirddimensionadvanture\tda\render.cpp
+
+1488315135 source:c:\thirddimensionadvanture\tda\src\logic.cpp
+	"Game.h"
+
+1479380389 source:c:\thirddimensionadvanture\tda\src\interaction.cpp
+	"Game.h"
+
+1488311323 source:c:\thirddimensionadvanture\tda\src\render.cpp
+	"Game.h"
+	"../font_lib/arial/stb_font_arial_22_latin_ext.inl"
+
+1479390011 c:\thirddimensionadvanture\tda\font_lib\arial\stb_font_arial_6_latin_ext.inl
+
+1479386410 c:\thirddimensionadvanture\tda\font_lib\arial\stb_font_arial_22_latin_ext.inl
+
+1482538554 source:c:\thirddimensionadvanture\tda\src\lodepng.cpp
+	"lodepng.h"
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+
+1482538564 c:\thirddimensionadvanture\tda\include\lodepng.h
+	<string.h>
+	<vector>
+	<string>
+	"lodepng.h"
+	<iostream>
+	"lodepng.h"
 

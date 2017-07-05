@@ -8,6 +8,9 @@
 #include <iostream>
 #include <vector>
 #include "Camera.h"
+#include "Object.h"
+#include "MathStructs.h"
+#include "lodepng.h"
 using namespace std;
 class Game
 {
@@ -25,13 +28,21 @@ class Game
         void renderThreadFunction(Game &obj);//tutaj renderowane sa obiekty brane z odpowiednich list
         void interactionThreadFunction();//obsluga klawiatury myszy itp.; wywolane w watku glownym; tworzy takze okno
         //--------------------------------------------------\\
+        //mutexy
+        SDL_mutex *lock;
+        SDL_cond *cond = SDL_CreateCond();
+        SDL_bool condition = SDL_FALSE;
         //kamery
         vector<Camera> cameras;
         Camera* currentCamera;
         void addCamera(string name, float x, float y, float z);
         Camera* getCamera(int id);
         Camera* getCamera(string name);
-
+        //do przeniesienia
+        vector<Object> objects;//temporary
+        vector<Model> models;//nie wiem czy tymczasowo
+        bool wireframe=false;
+        bool test = false;
 };
 
 #endif // GAME_H

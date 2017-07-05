@@ -105,3 +105,9 @@ std::string show(mat3 m)
     <<m.a31<<", "<<m.a32<<", "<<m.a33<<"\r\n";
     return ss.str();
 }
+std::string show(vec2 v)
+{
+    std::ostringstream ss;
+    ss << "x: " << v.x << " y: "<< v.y;
+    return ss.str();
+}
